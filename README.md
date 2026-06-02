@@ -1,3 +1,6 @@
+Usando isso somente para guardar código na nuvem
+E conseguir fazer alterações em alguns lugares sem meu notebook
+
 # ProjetoRpgJava
 1° projeto (grande) em java
 
