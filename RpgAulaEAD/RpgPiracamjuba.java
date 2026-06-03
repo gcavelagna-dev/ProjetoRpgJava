@@ -22,7 +22,7 @@ public class RpgPiracamjuba {
 
         //Guardião do Portão
 
-        int hpGuardiaoDoPortao = 20;
+        int hpGuardiaoDoPortao = 100;
         int strGuardiaoDoPortao = 10;
 
         try {
@@ -52,14 +52,17 @@ public class RpgPiracamjuba {
 
             int escolhaPersonagem = entrada.nextInt();//entrada é o scanner definido lá em cima
 
-            if (escolhaPersonagem == 1) {
+            if (escolhaPersonagem == 2) {
+                System.out.println("Ainda não existe esse personagem.");
+                return;
+            } else if (escolhaPersonagem == 1) {
                 System.out.println("Você escolheu o Guerreiro!");
                 Thread.sleep(2000);
                 System.out.println("Vamos para essa aventura!!");
                 Thread.sleep(1000);
                 System.out.println("...");
 
-                Thread.sleep(4000);
+                Thread.sleep(2000);
 
                 //começo da história
 
@@ -67,104 +70,118 @@ public class RpgPiracamjuba {
                 Thread.sleep(2000);
                 System.out.println("1-Sair.");
                 System.out.println("só aperte 1.");
+            }
+
+            int escolhaSair = entrada.nextInt();//entrada é o scanner definido lá em cima
+
+            if (escolhaSair == 1) { //java tem que ter == para saber que vai ser igual
 
 
-                int escolhaSair = entrada.nextInt();//entrada é o scanner definido lá em cima
+                System.out.println("Você escolheu a opção 1.\n");
+                Thread.sleep(1000);
 
-                if (escolhaSair == 1) { //java tem que ter == para saber que vai ser igual
+                System.out.println("Você saiu e corre perguntar para o aldeão mais próximo o que está acontecendo.\n");
+                Thread.sleep(3000);
+                System.out.println("Aldeão -- Agora é o nosso fim.");
+                Thread.sleep(3000);
+                System.out.println("O terrível Gorgonzola chegou para acabar com nossa vila.");
+                Thread.sleep(4000);
+                System.out.println("\nEle trouxe vários de seus capangas.");
+                Thread.sleep(3000);
 
+                System.out.println("O único jeito de acabar é derrotando Gorgonzola no topo da montanha.");
+                Thread.sleep(5000);
 
-                    System.out.println("Você escolheu a opção 1.\n");
-                    Thread.sleep(1000);
+                System.out.println("Ouça, você consegue fazer isso...");
+                Thread.sleep(4000);
 
-                    System.out.println("Você saiu e corre perguntar para o aldeão mais próximo o que está acontecendo.\n");
-                    Thread.sleep(3000);
-                    System.out.println("Aldeão -- Agora é o nosso fim.");
-                    Thread.sleep(3000);
-                    System.out.println("O terrível Gorgonzola chegou para acabar com nossa vila.");
+                System.out.println("Todos nós sabemos disso...");
+                Thread.sleep(4000);
 
-                    Thread.sleep(4000);
-                    System.out.println("\nEle trouxe vários de seus capangas.");
+                System.out.println("Mas antes, derrote o Guardião da Porta.\n");
+               Thread.sleep(4000);
+                System.out.println("Parece que você vai ter que resolver isso sozinho.");
+                Thread.sleep(4000);
 
-                    System.out.println("O único jeito de acabar é derrotando Gorgonzola no topo da montanha.");
-                    Thread.sleep(5000);
+                System.out.println("Sua espada está em sua cintura, coloque seu capacete para aventurar.\n");
+                Thread.sleep(1000);
+                System.out.println("---------------------------------------------------------------------");
+                Thread.sleep(4000);
 
-                    System.out.println("Ouça, você consegue fazer isso...");
-                    Thread.sleep(4000);
-
-                    System.out.println("Todos nós sabemos disso...");
-                    Thread.sleep(4000);
-
-                    System.out.println("Mas antes, derrote o Guardião da Porta.\n");
-                    Thread.sleep(4000);
-
-                    System.out.println("Parece que você vai ter que resolver isso sozinho.");
-                    Thread.sleep(4000);
-
-                    System.out.println("Sua espada está em sua cintura, coloque seu capacete para aventurar.\n");
-                    System.out.println("---------------------------------------------------------------------");
-                    Thread.sleep(5000);
-
-                    System.out.println("\nContinuando nossa história.");
-                    Thread.sleep(4000);
-                    System.out.println("Você caminha até o grande portão que leva para o vulcão. Mas, quem é aquele?\n");
-                    Thread.sleep(5000);
-                    System.out.println("Guardião da Porta -- Quem ousa vir enfrentar-me?");
-                    Thread.sleep(4000);
-                    System.out.println("Hora, senão um pequeno guerreiro, estou desapontado...\n");
-                    Thread.sleep(5000);
-                    System.out.println("Cai pra dentro.");
-                    System.out.println("---------------------------------------------------------------------");
-                    Thread.sleep(4000);
+                System.out.println("\nContinuando nossa história.");
+                Thread.sleep(4000);
+                System.out.println("Você caminha até o grande portão que leva para o vulcão. Mas, quem é aquele?\n");
+                Thread.sleep(5000);
+                System.out.println("Guardião da Porta -- Quem ousa vir enfrentar-me?");
+                Thread.sleep(4000);
+                System.out.println("Hora, senão um pequeno guerreiro, estou desapontado...\n");
+               Thread.sleep(4000);
+                System.out.println("Cai pra dentro.");
+                Thread.sleep(2000);
+                System.out.println("---------------------------------------------------------------------");
+                Thread.sleep(2000);
+                System.out.println("Utilize '1' para opção de atacar e '2' para se defender.");
+                Thread.sleep(2000);
 
                         /*
                          ajuda está última conversa do chat Desenvolvimento RPG Java
 
                         fazer random e while para enquanto a vida do personagem dor 0> maior que zero
                          */
-                } else {
-                    System.out.println("Escolha entre 1 ou 2 (2 não existe ainda)");
-                    //return;
-                }
+            } else if (escolhaSair == 2) {
+                System.out.println("Escolha entre 1 ou 2 (2 não existe ainda)");
+                return;
             }
+
+
+
+
 
 
             while(hpGuardiaoDoPortao > 0 && hpGuerreiro >0) {
 
-                System.out.println("Utilize '1' para opção de atacar e '2' para se defender.");
-                Thread.sleep(4000);
+
                 System.out.println("Seu HP é: +" + hpGuerreiro);
-                System.out.println("Com Ataque de +" + strGuerreiro);
+                System.out.println("Com Ataque de +" + strGuerreiro + "\n");
                 Thread.sleep(4000);
                 System.out.println("O HP do Guardião do portão é: +" + hpGuardiaoDoPortao);
-                System.out.println("Com Ataque de +" + strGuardiaoDoPortao);
+                System.out.println("Com Ataque de +" + strGuardiaoDoPortao+"\n");
                 Thread.sleep(4000);
                 System.out.println("\n================");
                 System.out.println("Você começa primeiro: ");
                 System.out.println("1- Atacar.");
-                System.out.println("2-Defender é inútil agora.");
+                System.out.println("2-Defender.");
                 System.out.println("================");
+                Thread.sleep(1000);
                 System.out.print("O que você deseja? ");
 
                 int escolhaLuta = entrada.nextInt();
 
                 if (escolhaLuta == 1) {
                     int dado = gerador.nextInt(11);//11 para chegar de 0 - 10
-
+                    //gerar um dado novo cada vez
 
                      if (dado <= 3) {
                        System.out.println("\nVocê girou o dado e tirou " + dado + ".");
                        Thread.sleep(3000);
                        System.out.println("Você errou completamente o ataque...");
                        Thread.sleep(3000);
-                       System.out.println("'Guardião do portão está com HP total de +" + hpGuardiaoDoPortao + "'");
+                       System.out.println("Guardião do portão está com HP total de +" + hpGuardiaoDoPortao + "\n");
                        Thread.sleep(4000);
-                     } else {
-                            System.out.println("\nVocê tirou " + dado + ".");
-                         Thread.sleep(2000);
+                       System.out.println("--------------------");
+                       System.out.println("Guardião do Portão -- Agora é a minha vez!\n");
+                       hpGuerreiro -= strGuardiaoDoPortao;
+                         System.out.println("Guardião do portão tirou -" + strGuardiaoDoPortao+"\n");
+                     } else if (dado >= 4){
+                        System.out.println("\nVocê tirou " + dado + ".");
+                        Thread.sleep(2000);
                         System.out.println("Você acertou o Guardião da porta!");
-                         Thread.sleep(3000);
+                        Thread.sleep(3000);
                         hpGuardiaoDoPortao -= strGuerreiro;
+                         System.out.println("--------------------");
+                         System.out.println("Guardião do Portão -- Agora é a minha vez!\n");
+                         hpGuerreiro -= strGuardiaoDoPortao;
+                         System.out.println("Guardião do Portão tirou -"+strGuardiaoDoPortao);
                      }
 
 
@@ -180,11 +197,13 @@ public class RpgPiracamjuba {
                           System.out.println("Sua defesa não foi um sucesso...");
                           hpGuerreiro -= strGuardiaoDoPortao;
                            Thread.sleep(3000);
+                         System.out.println("Você não defendeu completamente, com o ataque do Guardião você ficou com -"+strGuardiaoDoPortao);
 
                      } else {
                          Thread.sleep(3000);
                          System.out.println("\nVocê tirou " + dadoDefesa + ".");
                          System.out.println("Sua defesa foi um sucesso!!");
+                         System.out.println("\n'O ataque que Guardião da porta fez não irá valer.'");
 
                      }
 
