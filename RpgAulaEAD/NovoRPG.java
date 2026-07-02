@@ -155,7 +155,7 @@ public class NovoRPG {
         System.out.println("...");
         pausa(1000);
 
-        System.out.println("...");
+        System.out.println("...\n");
         pausa(1000);
 
 
@@ -690,8 +690,8 @@ public class NovoRPG {
                         linha();
                         System.out.println("Você acertou o ataque!!");
                         pausa(1000);
-                        hpBiggoron -= strGuerreiro;
-                        System.out.println("HP restante do Biggoron: " + hpBiggoron);
+                        hpMediggoron -= strGuerreiro;
+                        System.out.println("HP restante do Biggoron: " + hpMediggoron);
                         linha();
 
                     } else {
@@ -767,7 +767,7 @@ public class NovoRPG {
 
         continuadoHistoriaVulcao();
 
-        while (hpGuerreiro > 100 || hpVolvagia > 100) {
+        while (hpGuerreiro > 100 && hpVolvagia > 100) {
             statusJogador(hpGuerreiro, strGuerreiro, pocoesGuerreiro);
             statusVolvagia(hpVolvagia, strVolvagia);
             novoMenuComSkill();
@@ -839,11 +839,12 @@ public class NovoRPG {
 
                     if (resultadoDado < 6) {
 
-                        System.out.println("Você errou completamente e acertou o poder Liberado em seu ombro, dangrando muito.");
+                        System.out.println("Você errou completamente e acertou o poder Liberado em seu ombro, fazendo sangrar muito.");
                         pausa(4000);
                         System.out.println("Você perdeu -" + espadaSagradaLiberar + " de HP.");
                         hpGuerreiro -= espadaSagradaLiberar;
                     }
+                    break;
                 default:
                     System.out.println("Não existe esta opção, tente novamente.");
                     continue;
@@ -888,41 +889,200 @@ public class NovoRPG {
         pausa(5000);
         System.out.println("VocÊ sente uma raiva grande por tudo isso...");
         pausa(3000);
-        linha();
-        pausa(500);
-        System.out.println("1 - Ataque Liberação Total -120HP.");
-        pausa(1000);
-        System.out.println("2 - Golpe Ladrão de Coração -100HP.");
-        pausa(1000);
-        System.out.println("3 - Morte Lenta -Dano constante.");
-        linha();
-        System.out.println("Cada uma terá um efeito diferente, não ache que será algo fácil, pois se você errar");
-        pausa(2000);
-        System.out.println("Volvagia pode te matar com um golpe...");
-        pausa(2000);
-        System.out.println("Se você poupou suas poções, parabéns, você terá outra chance.");
-        pausa(3000);
-        System.out.print("O que você deseja? ");
 
-        //ataque final, pensei em decidir tudo em um golpe e se guerreiro perder e tiver +1 poção, ele tem uma chance à mais
-        //continuar while
-        //última parada, golpes que cada opção vai ter algo diferente
-        /*
-        1 vai ser uma rajada, onde a espada começa a brilhar e começa a ficar pesada
-        dai o guerreiro vai indo devagar para Volvagia enquanto ele tenta escapar, mas ele corta ao meio
+        while (true) {
+            int ultimaEscola = entrada.nextInt();
+            int resultadoDado = dado(10);
 
-        2 Com a magia do livro, você consegue tranformar em um bastão de quatro seções e roubando diretamente o coração
+            linha();
+            pausa(500);
+            System.out.println("1 - Ataque Liberação Total -120HP.");
+            pausa(1000);
+            System.out.println("2 - Golpe Ladrão de Coração -100HP.");
+            pausa(1000);
+            System.out.println("3 - Morte Lenta -Dano constante.");
+            linha();
+            System.out.println("Cada uma terá um efeito diferente, não ache que será algo fácil, pois se você errar");
+            pausa(2000);
+            System.out.println("Volvagia pode te matar com um golpe...");
+            linha();
+            System.out.print("O que você deseja? ");
 
-        3 Mediggoron retorna, mas no fim de sua vida, dando uma espada gigante, maior que Guerreiro consegue segurar, mas Mediggoron
-        ensina como transformar a magia em força. Com isso, cortando de pouco em pouco e Volvagia pedindo socorro à cada corte
+            switch (ultimaEscola) {
+                case 1:
 
-         */
-        //tambem tem a moça que está na luta, talvez no fim os dois se encontram e fiquem juntos e depois o guerreiro acaba tendo algo
-        
-        while (hpGuerreiro > 0 && hpVolvagia > 0) {
+                    analisando();
+                    rolandoDado();
+                    System.out.println("O dado caiu em: " + resultadoDado);
+                    pausa(2000);
+                    System.out.println("Se dado for menor que 6, você irá perder vida");
+                    pausa(2000);
+                    if (resultadoDado < 6) {
+
+                        System.out.println("Você acabou carregando todo o poder da Liberação, todo o sangue circulou rapidamente em seu corpo.");
+                        pausa(3000);
+                        System.out.println("Mas todo o poder carregado foi alto para você, tudo o que restou foi o seu corpo começando a despedaçar-se");
+                        pausa(3000);
+                        hpGuerreiro -= 80;
+                        System.out.println("Você perdeu muita vida, ficando somente com HP+"+hpGuerreiro);
+                        pausa(2000);
+
+                    }else {
+
+                        System.out.println("...\n");
+                        pausa(2000);
+
+                        System.out.println("Poder carregado com sucesso...");
+                        pausa(3000);
+                        System.out.println("Com todo o poder liberado, os seus braços estão fortes, mas muito pesados.");
+                        pausa(2000);
+                        System.out.println("A sua espada está carregada de tanto poder, você apunhala a sua espada.");
+                        pausa(3000);
+                        System.out.println("Volvagia tenta correr, mas se encurrala em um canto da parede do vulcão.");
+                        pausa(3000);
+                        System.out.println("A sua espada ficou pesada, o seu braço está pesado, você tenta erguer ela para fazer o ataque");
+                        pausa(3000);
+                        System.out.println("Enquanto ergue, uma barreira invisível começa se quebrar repentinamente, com tanto poder ela se quebra e lança uma rajada forte. ");
+                        pausa(4000);
+                        carregando();
+                        System.out.println("Deu tudo certo...");
+                        pausa(2000);
+                        hpVolvagia = 0;
+
+                    }
+
+                    break;
+                case 2:
+
+                    analisando();
+                    rolandoDado();
+                    System.out.println("O dado caiu em: " + resultadoDado);
+                    pausa(2000);
+                    System.out.println("Se dado for menor que 6, você irá perder vida");
+                    pausa(2000);
+
+                    if (resultadoDado < 6) {
+
+                        System.out.println("Você tentou transformar sua espada em um bastão de quatro seções com um grande poder em volta.");
+                        pausa(3000);
+                        System.out.println("Mas todo o poder carregado foi alto para você, tudo o que restou foi o seu corpo começando a despedaçar-se");
+                        pausa(3000);
+                        hpGuerreiro -= 80;
+                        System.out.println("Você perdeu muita vida, ficando somente com HP+" + hpGuerreiro);
+                        pausa(2000);
+                    }else {
+
+                        System.out.println("...\n");
+                        pausa(2000);
+                        System.out.println("Poder carregado com sucesso...");
+                        pausa(3000);
+                        System.out.println("Tudo ficou mais leve para você, seus movimentos estão 10x vezes mais rápidos, sua espada agora é um bastão de quatro seções.");
+                        pausa(4000);
+                        System.out.println("Você corre em direção de Volvagia, mas ele tenta correr para um canto e acaba ficando encurralado, ele está com muito medo de você.");
+                        pausa(4000);
+                        System.out.println("...");
+                        pausa(2000);
+                        System.out.println("Você escalou pela perna dele e arremessou o bastão, fazendo-o pegar o coração e trazer em sua mão.");
+                        pausa(3000);
+                        System.out.println("Tudo fica em silêncio, Volvagia está com olhos brancos...");
+                        pausa(3000);
+                        hpVolvagia = 0;
+
+                    }
+                    break;
+
+                case 3:
+
+                    if (resultadoDado < 6) {
+
+                        System.out.println("Tudo começou a ficar lento, mas nada aconteceu.");
+                        pausa(3000);
+                        System.out.println("Todo o poder carregado foi alto para você, tudo o que restou foi o seu corpo começando a despedaçar-se");
+                        pausa(3000);
+                        hpGuerreiro -= 80;
+                        System.out.println("Você perdeu muita vida, ficando somente com HP+" + hpGuerreiro);
+                        pausa(2000);
+                    }else {
+
+                        System.out.println("...\n");
+                        pausa(2000);
+                        System.out.println("Poder carregado com sucesso...");
+                        pausa(3000);
+                        System.out.println("Tudo ficou mais leve para você, seus movimentos estão 10x vezes mais rápidos, sua espada está forjada de poder.");
+                        pausa(4000);
+                        System.out.println("Você corre em direção de Volvagia, enquanto ele tenta correr à pressas e vai para um canto, ficando encurralado.");
+                        pausa(3000);
+                        System.out.println("Tudo está lento, você passa a lámina no braço, parece que nem forçou o suficiente, mas o braço de Volvagia foi arrancado.");
+                        pausa(4000);
+                        hpVolvagia -=strGuerreiro;
+                        System.out.println("Volvagia está gritando e cuspindo fogo por toda parte, mas você ainda continua, Volvagia HP+"+hpVolvagia);
+                        pausa(5000);
+                        System.out.println("Você cortou a calda...");
+                        pausa(2000);
+                        System.out.println("Você cortou as duas pernas...");
+                        pausa(2000);
+                        System.out.println("Você arrancou o olho direito...");
+                        pausa(4000);
+                        System.out.println("Tudo fica em silêncio repentinamente, mas quando você olhou para Volvagia, ele cai sobre a terra lentamente...");
+                        hpVolvagia = 0;
+                        pausa(4000);
+
+                    }
+                    break;
+
+                default:
+                    System.out.println("Não existe essa opção, tente novamente.");
+                    continue;
+            }
+            break;
 
         }
 
+        carregando();
+        System.out.println("Volvagia não responde mais...");
+        pausa(2000);
+        System.out.println("Com o corpo no chão, a dama que estava presa conseguiu caminhar sobre Volvagia até o solo.");
+        pausa(3000);
+        System.out.println("Você fica para analisando tudo... A dama está muito feliz e corre em sua direção rapidamente.");
+        pausa(4000);
+        System.out.println("Ela está chegando cada vez mais perto, mas... Você se ajoelha, não por vontade.");
+        pausa(3000);
+        System.out.println("Você está escutando tudo, mas não consegue responder mais...");
+        pausa(3000);
+        System.out.println("Você caiu diante da terra...");
+        pausa(3000);
+        System.out.println("Dama -- Responde por favor!!! Me escuta, por favor, fala alguma coisa!");
+        pausa(3000);
+        System.out.println("Dama -- Eu imploro, me responde! ");
+        pausa(3000);
+        System.out.println("Tudo fica em silêncio... Lágrimas da dama caem sobre você enquanto ela te abraça.");
+        pausa(4000);
+        System.out.println("Você tenta entender o que está acontecendo, tudo está tão difícil de entender.");
+        pausa(4000);
+        System.out.println("Enquanto ela te abraça, o seu pescoço mexe e você enxerga o seu corpo...");
+        pausa(4000);
+        System.out.println("Um buraco tão grande em sua barriga.");
+        pausa(3000);
+        System.out.println("Como? Provávelmente Volvagia foi para o canto fingindo estar encurralado para fazer algo que você não viu.");
+        pausa(5000);
+        System.out.println("Dama -- Duncan! Me escute, você era meu amigo desde que chegamos, sei que não vai se lembrar...");
+        pausa(4000);
+        System.out.println("Dama -- Sei que não há mais nada, chamarei ajuda, vou tentar sair daqui primeiro.");
+        pausa(5000);
+
+        carregando();
+        System.out.println("Passaram-se meses desde este dia...");
+        pausa(4000);
+        System.out.println("A morte de Duncan virou lenda para se contar em muitos anos.");
+        pausa(4000);
+        System.out.println("Infelizmente você não estará lá.");
+        pausa(3000);
+        System.out.println("A dama vai visitar o seu túmulo todos os dias desde o que aconteceu...");
+
+
+        /*
+        fazer o final onde ainda continua a batalha
+         */
 
         //                      final                        \\
         if (hpGuerreiro <= 0) { //jogador morrer
