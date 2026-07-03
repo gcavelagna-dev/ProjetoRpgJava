@@ -3,18 +3,25 @@ package RpgAulaEAD;
 import java.util.Random;
 import java.util.Scanner;
 
+/*
+algumas anotações
+Muitas coisas ficaram repetidas, como Random, métodos, menu de batalha, turnos de batalha e etc
+ */
+
 public class NovoRPG {
 
     static Random gerador = new Random();
 
     public static void analisando() {
 
-        System.out.println("\nAnalisando...");
-        pausa(500);
+        System.out.println("\nAnalisando");
+        pausa(200);
         System.out.println("...");
-        pausa(500);
+        pausa(200);
+        System.out.println("...");
+        pausa(200);
         System.out.println("...\n");
-        pausa(500);
+        pausa(200);
     }
 
 
@@ -63,8 +70,6 @@ public class NovoRPG {
         System.out.println("Seu ataque é de +" + str + "STR");
         pausa(1000);
         System.out.println("Você tem " + pocoes + " poções.");
-        pausa(1000);
-        System.out.println("As chances de acertar com o poder da Espada Sagrada é menor, cuidado.");
         linha();
         pausa(4000);
     }
@@ -410,12 +415,18 @@ public class NovoRPG {
         linha();
         pausa(1000);
         System.out.println("1 - Atacar.");
+        pausa(500);
 
         System.out.println("2 - Defender.");
+        pausa(500);
 
         System.out.println("3 - Tomar poção");
+        pausa(500);
 
         System.out.println("4 - Espada Sagrada: Liberar.");
+
+        pausa(1000);
+        System.out.println("As chances de acertar com o poder da Espada Sagrada é menor, cuidado.");
         linha();
         System.out.println("O que você deseja?");
     }
@@ -463,8 +474,10 @@ public class NovoRPG {
 
 
         while (true) {
+
             int escolhaPersonagem = entrada.nextInt();
             analisando();
+
             switch (escolhaPersonagem) {
                 case 1:
 
@@ -477,6 +490,8 @@ public class NovoRPG {
                 case 2:
 
                     System.out.println("Ainda não existe este personagem");
+                    pausa(300);
+                    System.out.println("Tente novamente:");
                     continue;
 
                 default:
@@ -536,7 +551,7 @@ public class NovoRPG {
 
         historiaComecoBatalha();
 
-
+        sairLoop:
         while (hpGuerreiro > 0 && hpBiggoron > 0) {
             //               textos
             statusJogador(hpGuerreiro, strGuerreiro, pocoesGuerreiro);
@@ -545,7 +560,6 @@ public class NovoRPG {
 
             int resultadoDado = dado(10);
             int escolhaLuta = entrada.nextInt();
-            analisando();
 
             switch (escolhaLuta) {
                 case 1:
@@ -624,6 +638,10 @@ public class NovoRPG {
                 System.out.println("\nBiggoron acertou completamente o ataque e ele retirou " + strBiggoron + " de seu HP.");
             }
 
+            if (hpBiggoron <= 0){
+                break sairLoop;
+            }
+
         }//fim while
 
         derrotaBigorron();
@@ -672,6 +690,7 @@ public class NovoRPG {
         System.out.println("Agora é hora da luta...");
         pausa(1000);
 
+        sairLoop:
         while (hpGuerreiro > 0 && hpMediggoron > 0) {
 
             statusMediggoron(hpMediggoron, strMediggoron);
@@ -763,6 +782,10 @@ public class NovoRPG {
                 System.out.println("Mediggoron te acertou em cheio e tirou " + strMediggoron + " de HP.");
             }
 
+            if (hpMediggoron <=0) {
+                break sairLoop;
+            }
+
         } //fim while
 
         derrotaMediggoron();
@@ -770,6 +793,7 @@ public class NovoRPG {
 
         continuadoHistoriaVulcao();
 
+        sairLoop:
         while (hpGuerreiro > 100 && hpVolvagia > 100) {
             statusJogador(hpGuerreiro, strGuerreiro, pocoesGuerreiro);
             statusVolvagia(hpVolvagia, strVolvagia);
@@ -869,6 +893,10 @@ public class NovoRPG {
                 System.out.println("Volvagia acertou a bola de fogo em cheio... Você perdeu " + strVolvagia + " de HP...");
                 hpGuerreiro -= strVolvagia;
                 pausa(3000);
+            }
+
+            if (hpVolvagia <= 100 && hpGuerreiro <=100) {
+                break sairLoop;
             }
         }
 
@@ -1148,6 +1176,24 @@ public class NovoRPG {
                 System.out.println("Não há mais escapatória para ele, você apunhala sua espada e pula por cima e corta a cabeça de Volvagia...");
                 pausa(4000);
             }
+            //              turno volvagia                  \\
+
+            int dadoVolvagia = dado(10);
+
+            System.out.println("Volvagia -- Agora é minha vez! Se prepare!");
+
+            if (dadoVolvagia <= 3) {
+                System.out.println("Volvagia jogou uma bola de fogo, mas você ricochetiou e voltou para boca dele!");
+                pausa(3000);
+                System.out.println("Você tirou " + strGuerreiro + " de Hp");
+                pausa(2000);
+
+            } else {
+                System.out.println("Volvagia acertou a bola de fogo em cheio... Você perdeu " + strVolvagia + " de HP...");
+                hpGuerreiro -= strVolvagia;
+                pausa(3000);
+            }
+            
             break;
         }
 
