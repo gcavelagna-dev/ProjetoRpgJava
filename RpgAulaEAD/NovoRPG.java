@@ -168,7 +168,10 @@ public class NovoRPG {
 
         System.out.println("1-Guerreiro.");
 
-        System.out.println(" HP/Vida: 180\n" + " STR/Ataque: 25\n"); //\n quebra de linha
+        System.out.println("""
+                 HP/Vida: 180
+                 STR/Ataque: 25
+                """); //\n quebra de linha
 
         System.out.println("2-Mago De fogo.\n");
 
@@ -869,6 +872,7 @@ public class NovoRPG {
             }
         }
 
+
         carregando();
         pausa(5000);
         System.out.println("\nFoi um ataque determinante...");
@@ -931,7 +935,6 @@ public class NovoRPG {
 
                         System.out.println("...\n");
                         pausa(2000);
-
                         System.out.println("Poder carregado com sucesso...");
                         pausa(3000);
                         System.out.println("Com todo o poder liberado, os seus braços estão fortes, mas muito pesados.");
@@ -946,8 +949,8 @@ public class NovoRPG {
                         pausa(4000);
                         carregando();
                         System.out.println("Deu tudo certo...");
-                        pausa(2000);
                         hpVolvagia = 0;
+                        pausa(2000);
 
                     }
 
@@ -979,18 +982,18 @@ public class NovoRPG {
                         System.out.println("Tudo ficou mais leve para você, seus movimentos estão 10x vezes mais rápidos, sua espada agora é um bastão de quatro seções.");
                         pausa(4000);
                         System.out.println("Você corre em direção de Volvagia, mas ele tenta correr para um canto e acaba ficando encurralado, ele está com muito medo de você.");
-                        pausa(4000);
+                        pausa(5000);
                         System.out.println("...");
                         pausa(2000);
                         System.out.println("Você escalou pela perna dele e arremessou o bastão, fazendo-o pegar o coração e trazer em sua mão.");
                         pausa(3000);
                         System.out.println("Tudo fica em silêncio, Volvagia está com olhos brancos...");
-                        pausa(3000);
                         hpVolvagia = 0;
+                        pausa(3000);
 
                     }
-                    break;
 
+                    break;
                 case 3:
 
                     if (resultadoDado < 6) {
@@ -1028,14 +1031,124 @@ public class NovoRPG {
                         pausa(4000);
 
                     }
-                    break;
 
+                    break;
                 default:
                     System.out.println("Não existe essa opção, tente novamente.");
                     continue;
             }
             break;
 
+        }
+
+        if (hpVolvagia >=80) {
+            carregando();
+            System.out.println("Pelo jeito o ataque deu completamente errado...");
+            pausa(2000);
+            System.out.println("Volvagia está com muita raiva de tudo isso");
+            pausa(2000);
+            System.out.println("Vamos para ultima seção");
+            pausa(2000);
+            System.out.println("...\n");
+            pausa(2000);
+            linha();
+
+        }
+        while (hpGuerreiro >0 && hpVolvagia > 0) {
+            novoMenuComSkill();
+
+            statusJogador(hpGuerreiro, strGuerreiro, pocoesGuerreiro);
+            statusVolvagia(hpVolvagia, strVolvagia);
+            novoMenuComSkill();
+
+            int resultadoDado = dado(10);
+            int batalhaVolvagia = entrada.nextInt();
+
+            switch (batalhaVolvagia) {
+                case 1:
+
+                    analisando();
+                    rolandoDado();
+                    System.out.println("O dado caiu em: " + resultadoDado);
+
+                    if (resultadoDado < 4) {
+
+                        hpGuerreiro -= strVolvagia;
+                        System.out.println("Você errou o golpe, você perdeu " + strVolvagia + " de HP.");
+                        pausa(1000);
+                    } else {
+                        hpVolvagia -= strGuerreiro;
+                        System.out.println("VOCÊ ACERTOU!! Volvagia perdeu " + strGuerreiro + " de HP.");
+
+                    }
+                    break;
+                case 2:
+
+                    analisando();
+                    rolandoDado();
+                    System.out.println("O dado caiu em: " + resultadoDado);
+
+                    if (resultadoDado < 4) {
+                        hpGuerreiro -= strMediggoron;
+                        System.out.println("Você está correndo um grande perigo...");
+                        pausa(4000);
+                        System.out.println("Você perdeu " + strMediggoron + " de HP.");
+                        pausa(1000);
+
+
+                    } else {
+
+                        pausa(1000);
+                        linha();
+                        System.out.println("Você Conseguiu se defender!!");
+                        pausa(1000);
+                        System.out.println("Biggoron não irá conseguir acertar o próximo ataque.");
+                        linha();
+
+                    }
+                    break;
+                case 3:
+
+                    analisando();
+
+                    if (pocoesGuerreiro > 0) {
+
+                        hpGuerreiro = pocao(hpGuerreiro, pocoesGuerreiro);
+                        pocoesGuerreiro--;
+                        System.out.println("Você conseguiu tomar poção, você recuperou " + curaPocao + " de HP.");
+                        break;
+                    }
+                    break;
+                case 4:
+
+                    analisando();
+                    rolandoDado();
+                    System.out.println("O dado caiu em: " + resultadoDado);
+                    System.out.println("Se dado for menor que 6, você irá perder vida");
+
+                    if (resultadoDado < 6) {
+
+                        System.out.println("Você errou completamente e acertou o poder Liberado em seu ombro, fazendo sangrar muito.");
+                        pausa(4000);
+                        System.out.println("Você perdeu -" + espadaSagradaLiberar + " de HP.");
+                        hpGuerreiro -= espadaSagradaLiberar;
+                    }
+                    break;
+                default:
+                    System.out.println("Não existe esta opção, tente novamente.");
+                    continue;
+            }
+
+            if (hpVolvagia <= 0) {
+                pausa(3000);
+                System.out.println("...");
+                pausa(2000);
+                System.out.println("Você conseguiu, você tenta correr atrás de Volvagia, mas ele foje para um canto.");
+                pausa(4000);
+                System.out.println("Não há mais escapatória para ele, você apunhala sua espada e pula por cima e corta a cabeça de Volvagia...");
+                pausa(4000);
+            }
+            break;
         }
 
         carregando();
