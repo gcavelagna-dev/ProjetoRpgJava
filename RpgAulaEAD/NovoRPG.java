@@ -194,7 +194,7 @@ public class NovoRPG {
                  STR/Ataque: 25
                 """); //\n quebra de linha
 
-        System.out.println("2-Mago De fogo.\n");
+        System.out.println("2-Mago De fogo.(ainda não tem)\n");
 
         System.out.print("Digite para selecionar: ");
 
@@ -476,7 +476,7 @@ public class NovoRPG {
         //statusBiggoron(hpBiggoron, strBiggoron);
 
         //2°inimigo
-        int hpMediggoron = 130;
+        int hpMediggoron = 130; //status inimigo
         int strMediggoron = 15;
         //statusMediggoron(hpMediggoron, strMediggoron);
 
@@ -485,17 +485,18 @@ public class NovoRPG {
         int strVolvagia = 35;
         // statusVolvagia(hpVolvagia, strVolvagia);
 
-        carregando();
-        escolhaPersonagem();
+
         manualInicio();
+        carregando();
+        escolhaPersonagem(); //métodos para evitar repetição
 
-
+        
         while (true) {
 
             int escolhaPersonagem = entrada.nextInt();
             analisando();
 
-            switch (escolhaPersonagem) {
+            switch (escolhaPersonagem) { //escolha caso escolha 1, 2...
                 case 1:
 
                     System.out.println("Você escolheu Guerreiro!");
@@ -582,7 +583,7 @@ public class NovoRPG {
                 case 1:
 
                     analisando();
-                    rolandoDado();
+                    rolandoDado();//sistema do dado
                     System.out.println("O dado caiu em: " + resultadoDado);
 
                     if (resultadoDado >= 4) {
@@ -782,7 +783,7 @@ public class NovoRPG {
 
             //              turno mediggoron               \\
 
-            int dadoMediggoron = dado(10);
+            int dadoMediggoron = dado(10); //dado aleatório
 
             rolandoDado();
 
@@ -1213,6 +1214,14 @@ public class NovoRPG {
 
             break;
         }
+
+        /*
+
+
+                    FINAL
+
+
+         */
 
         carregando();
         System.out.println("Volvagia não responde mais...");
