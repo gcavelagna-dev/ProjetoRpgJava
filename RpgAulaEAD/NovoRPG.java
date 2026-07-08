@@ -10,6 +10,22 @@ Muitas coisas ficaram repetidas, como Random, métodos, menu de batalha, turnos 
 
 public class NovoRPG {
 
+    public static void manualInicio() {
+
+        linha();
+        System.out.println("Manual de orientação:");
+        pausa(2000);
+        System.out.println("É um RPG de tabuleiro(Ou quase).");
+        pausa(2000);
+        System.out.println("Teremos turnos de batalhas entre o jogador e o inimigo, cada um jogará um dado.");
+        pausa(4000);
+        System.out.println("Temos um menu de opções, entre lutar, usar escudo ou também tomar poções.");
+        pausa(4000);
+        System.out.println("Retirando a poção, luta e escudos utilizaram dados, se for menor que 4, dará errado a ação.");
+        linha();
+        pausa(4000);
+    }
+
     static Random gerador = new Random();
 
     public static void analisando() {
@@ -125,7 +141,7 @@ public class NovoRPG {
 
     }
 
-    public static int pocao(int hpAtual, int quantidadePocoes) {
+    public static int pocao(int hpAtual, int quantidadePocoes) { //pocao e dado não tem void
 
         if (quantidadePocoes > 0) {
             int cura = 45;
@@ -471,6 +487,7 @@ public class NovoRPG {
 
         carregando();
         escolhaPersonagem();
+        manualInicio();
 
 
         while (true) {
@@ -552,7 +569,7 @@ public class NovoRPG {
         historiaComecoBatalha();
 
         sairLoop:
-        while (hpGuerreiro > 0 && hpBiggoron > 0) {
+        while (hpGuerreiro > 0) {
             //               textos
             statusJogador(hpGuerreiro, strGuerreiro, pocoesGuerreiro);
             statusBiggoron(hpBiggoron, strBiggoron);
@@ -691,7 +708,7 @@ public class NovoRPG {
         pausa(1000);
 
         sairLoop:
-        while (hpGuerreiro > 0 && hpMediggoron > 0) {
+        while (hpGuerreiro > 0) {
 
             statusMediggoron(hpMediggoron, strMediggoron);
             statusJogador(hpGuerreiro, strGuerreiro, pocoesGuerreiro);
@@ -1193,7 +1210,7 @@ public class NovoRPG {
                 hpGuerreiro -= strVolvagia;
                 pausa(3000);
             }
-            
+
             break;
         }
 
