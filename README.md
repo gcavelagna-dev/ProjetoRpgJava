@@ -1,4 +1,4 @@
-# Jogo baseado em linhas no terminal
+# Experiência de primeiro projeto
 Inicio de aprendizagem sobre Java, atividade do 1° semestre da aula das oficinas do NAAHS Altas Habilidades.
 
 Projeto com fim educacional com uma ideia de exercício sobre o que poderíamos desenvolver, surgindo a ideia de desenvolver um RPG com base na criatividade.
