@@ -1,5 +1,5 @@
 # Experiência de primeiro projeto
-Inicio de aprendizagem sobre Java, atividade do 1° semestre da aula das oficinas do NAAHS Altas Habilidades.
+Inicio de aprendizagem sobre Java, atividade do 1° semestre das aulas da oficina do NAAHS Altas Habilidades.
 
 Projeto com fim educacional com uma ideia de exercício sobre o que poderíamos desenvolver, surgindo a ideia de desenvolver um RPG com base na criatividade.
 Esse foi meu primeiro projeto utilizando os primeiros conceitos que aprendi com a linguagem Java, passando horas em erros de fechamento de chaves e sem saber porque o texto estava repetindo infinitamente ou muitos erros iniciais. 
